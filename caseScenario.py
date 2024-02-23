@@ -8,11 +8,6 @@ class caseScenario():
     
     """
     measure_sort_time: Measures the execution time of a sorting function. 
-    
-    :param sort_function: The sorting function to measure
-    :param arry: The array to sort
-    :param number: How many times the execute the sort for timing
-    :return: The execution time in seconds
     """
     def measure_sort_time(self, sort_function, array, number=1): 
         # Use a lambda to pass 'array' to the sorting function
