@@ -1,4 +1,3 @@
-
 import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np 
@@ -37,6 +36,7 @@ def visualize_graph(G, pos):
         pos (dict): Positions of the nodes in the graph visualization
     """
     plt.figure(figsize=(10, 6))
+    plt.title("Weighted Undirected Graph")
     nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=800, width=2)
     
     # Draw weighted edge labels
@@ -89,6 +89,7 @@ def draw_shortest_path_tree_with_colors(G, pos, paths, source):
         source (node): The source node for the paths
     """
     plt.figure(figsize=(12, 8))
+    plt.title(f"Shortest path tree starting at {source}")
     
     # Draw the background graph
     nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=800, edge_color='black', width=2)
@@ -171,16 +172,16 @@ def visualize_minimum_spanning_tree(G, pos):
         print(f"Edge ({u}, {v}) with weight: {weight}")
     print(f"Total weight of MST: {total_weight}")
     
-    # Plot the original graph
+    # Plot the graph
     plt.figure(figsize=(10, 6))
+    plt.title('Minimum Spanning Tree')
     nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=800, edge_color='gray', width=2)
 
-    # Draw the MST edges on top of the original graph
+    # Draw the MST edges on top of the graph
     edge_labels = nx.get_edge_attributes(mst, 'weight')
     nx.draw_networkx_edges(mst, pos, edge_color='red', width=3)
     nx.draw_networkx_edge_labels(mst, pos, edge_labels=edge_labels, font_color='red')
-    
-    plt.title('Minimum Spanning Tree Overlay')
+
     plt.show()
 
 
@@ -195,17 +196,32 @@ if __name__ == "__main__":
 
     G = create_graph()
     visualize_graph(G, positions)
-    
-    # Get the shortest path tree starting from node 'A'
-    edges_in_tree, lengths, paths = dijkstra_shortest_paths(G, 'A')
-    
-    # Print the lengths and pathsq
-    print("Shortest paths from node 'A':")
-    for node, length in lengths.items():
-        print(f"Node {node} has a path of length {length}: {paths[node]}")
         
     # Correctly call the function with paths dictionary
-    draw_shortest_path_tree_with_colors(G, positions, paths, 'A')
+    user_selection = input("Would you like to start at a certain node (yes/no): ").lower()
+    
+    if user_selection == 'no': 
+        # Get the shortest path tree starting from node 'A'
+        edges_in_tree, lengths, paths = dijkstra_shortest_paths(G, 'A')
+        
+        # Print the lengths and pathsq
+        print("Shortest paths from node 'A':")
+        for node, length in lengths.items():
+            print(f"Node {node} has a path of length {length}: {paths[node]}")
+            
+        draw_shortest_path_tree_with_colors(G, positions, paths, 'A')
+    else: 
+        specified_node = input("What node would you like start from: ").upper()
+
+        # Get the shortest path tree starting from node 'A'
+        edges_in_tree, lengths, paths = dijkstra_shortest_paths(G, specified_node)
+        
+        # Print the lengths and pathsq
+        print(f"Shortest paths from node {specified_node}: ")
+        for node, length in lengths.items():
+            print(f"Node {node} has a path of length {length}: {paths[node]}")
+        
+        draw_shortest_path_tree_with_colors(G, positions, paths, specified_node)
     
     # Visualize the Minimum Spanning Tree
     visualize_minimum_spanning_tree(G, positions)
