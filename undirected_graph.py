@@ -1,21 +1,3 @@
-"""
-1) Start program 
-    1a) First graph will open up, press 'q' to close (make sure caps lock is not on)
-    
-2) Prompt will need to be answered in the terminal does not matter about caps (Answer question 1a)
-    2a) Entering 'yes' will ask for the start node to enter, choose from the "nodes" list 
-        2ab) Enter the traversal method, graph will show and connected components will appear in terminal 
-    2b) Entering 'no' will start from generic first node ("A")
-        2bb) Enter the traversal method, graph will show and connected components will appear in terminal
-    2c) Prompt to perform another search 
-
-3) Prompt for entering the source node for finding shortest path for BFS (Answers question 1b and 1c in project requirements)
-    3a) Enter target node for BFS
-
-4) Repeat 3 and 3a for DFS
-    4) Green nodes are one in path, red nodes are nodes found but not in path
-"""
-
 import networkx as nx 
 import matplotlib.pyplot as plt 
 
@@ -221,6 +203,18 @@ def path_using_BFS(G, pos, source_node, target_node):
         print(f"No path exists between {source_node} and {target_node}")
     
 def path_using_DFS(graph, pos, source, target): 
+    """
+    Finds and graphs the shortest path between two nodes using DFS
+
+    Args:
+        G (nx.Graph): The graph
+        pos (dict): Positions of the nodes in the graph visualization
+        source_node (str): The starting node of the path
+        target_node (str): The ending node of the path
+
+    Returns:
+        _type_: _description_
+    """
         
     visited = set() 
     all_visited = [] 
