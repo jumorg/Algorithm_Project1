@@ -7,11 +7,10 @@ def create_graph():
     
     # Nodes and edges to be added to the graph
     nodes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P']
-    edges = [('A','B'), ('A','F'), ('A','E'), ('B','F'), ('E','F'), 
-            ('B', 'C'), ('C', 'D'), ('C', 'G'), ('D','G'), ('G','J'),
-            ('E','I'), ('F','I'), ('J','I'), ('I','M'), ('M', 'N'), 
-            ('H', 'K'), ('H', 'L'), ('K', 'L'), ('K', 'O'), ('L', 'P')
-    ]
+edges = [('A','B'), ('A','E'), ('A','F'), ('B','C'), ('B','F'),
+         ('C','D'), ('C','G'), ('D','G'), ('E','F'), ('E','I'), 
+         ('F','I'), ('G','J'), ('H','K'), ('H','L'), ('I','M'), 
+         ('J','I'), ('K','L'), ('K','O'), ('L','P'), ('M','N')]
     
     # Nodes and edges added to graph 
     G.add_nodes_from(nodes)
