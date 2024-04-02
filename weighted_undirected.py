@@ -1,6 +1,3 @@
-"""
-    This is still being improved and worked on, I'll have the updated version tonight or tomorrow at the latest 
-"""
 
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -212,6 +209,3 @@ if __name__ == "__main__":
     
     # Visualize the Minimum Spanning Tree
     visualize_minimum_spanning_tree(G, positions)
-    
-    
-    
