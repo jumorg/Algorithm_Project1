@@ -16,8 +16,6 @@
     4) Green nodes are one in path, red nodes are nodes found but not in path
 """
 
-
-
 import networkx as nx 
 import matplotlib.pyplot as plt 
 
@@ -294,14 +292,3 @@ if __name__ == "__main__":
     
     # Finds path between two nodes using DFS
     path_using_DFS(G, positions, source_node, target_node)
-    
-    
-    
-"""
-WHAT TO DO: 
-    * Modulize
-        * Maybe make graph an object that is passed through just altering edges and nodes as needed
-    * Optimize
-        * improve user_defined_components
-    * Add comments 
-"""
